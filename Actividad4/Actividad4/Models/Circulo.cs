@@ -14,6 +14,20 @@ namespace Actividad4.Models
         {
 
         }
+        public double CalcularArea()
+        {
+            return Math.PI * Math.Pow(Radio, 2);
+        }
+
+        public double CalcularPerimetro()
+        {
+            return 2 * Math.PI * Radio;
+        }
+
+        public override string ToString()
+        {
+            return $"Circulo - {CalcularArea():f2} - {CalcularPerimetro():f2}";
+        }
 
         //public override double CalcularArea()
         //{
@@ -26,7 +40,7 @@ namespace Actividad4.Models
         //    double diametro = 2 * Radio;
         //    res = Math. PI * diametro;
         //    return res;
-        
+
 
         //}
     }

@@ -23,6 +23,21 @@ namespace Actividad4.Models
         public double perimetro = 0;
 
 
+        public double CalcularArea()
+        {
+            return ladoUno * ladoDos;
+        }
+        public double CalcularPerimetro()
+        {
+            return 2 * (ladoUno + ladoDos);
+        }
+
+        public override string ToString()
+        {
+            return $"Rectangulo - {CalcularArea():f2} - {CalcularPerimetro():f2}";
+        }
+
+
         //public override double CalcularArea()
         //{
         //    area = ladoUno * ladoDos;

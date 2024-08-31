@@ -12,12 +12,12 @@ namespace Actividad4.Models
     //    abstract public double CalcularPerimetro();
 
 
-    interface Ifigura
-    {
+    //interface Ifigura
+    //{
 
 
-        double CalcularArea();
-        double CalcularPerimetro();
-    }
-    }
+    //    double CalcularArea();
+    //    double CalcularPerimetro();
+    //}
+    //}
 }

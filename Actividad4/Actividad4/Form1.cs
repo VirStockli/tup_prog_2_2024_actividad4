@@ -20,18 +20,28 @@ namespace Actividad4
 
         private void btnRectangulo_Click(object sender, EventArgs e)
         {
-            Figura[] figuras = new Figura[5];
-            figuras[0] = new Rectangulo(3, 4);
-            figuras[1] = new Cuadrado(3.5);
-            figuras[2] = new Circulo(2);
-            figuras[3] = new Rectangulo(3, 4);
-            figuras[4] = new Rectangulo(3, 4);
+            //Figura[] figuras = new Figura[5];
+            //figuras[0] = new Rectangulo(3, 4);
+            //figuras[1] = new Cuadrado(3.5);
+            //figuras[2] = new Circulo(2);
+            //figuras[3] = new Rectangulo(3, 4);
+            //figuras[4] = new Rectangulo(3, 4);
 
-            foreach (Figura fig in figuras)
+            //foreach (Figura fig in figuras)
+            //{
+            //    //double a = fig.CalcularArea();
+            //    textBox1.Text=(fig.ToString());
+
             {
-                //double a = fig.CalcularArea();
-                textBox1.Text=(fig.ToString());
-                
+                IFigura[] misFiguras = new IFigura[]{
+                                           new Cuadrado(2),
+                                           new Cuadrado(5),
+                                            new Rectangulo(5,1)
+                                               };
+                foreach (IFigura fig in misFiguras)
+                {
+                    textBox1.Text+=$"Añadiendo figuras:{fig}";
+                }
             }
         }
     }

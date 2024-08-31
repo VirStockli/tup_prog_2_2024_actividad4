@@ -2,5 +2,7 @@
 {
     internal interface IFigura
     {
+        double CalcularArea();
+        double CalcularPerimetro();
     }
 }
