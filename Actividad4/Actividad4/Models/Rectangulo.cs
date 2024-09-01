@@ -8,33 +8,38 @@ using System.Windows.Forms;
 
 namespace Actividad4.Models
 {
-    internal class Rectangulo : IFigura
+    internal class Rectangulo : IFigura, IComparable
     {
-
-        public Rectangulo(double LadoU, double LadoD)//:base(LadoU,LadoD)
+        public double Largo { get;  }
+        public double Ancho { get; }
+        public Rectangulo(double LadoA, double LadoB)
         {
-            this.ladoUno = LadoU;
-            this.ladoDos= LadoD;
-
+            this.Largo = LadoA;
+            this.Ancho= LadoB;
         }
-        public double ladoUno { get; set; }
-        public double ladoDos { get; set; }
-        public double area = 0;
-        public double perimetro = 0;
-
-
-        public double CalcularArea()
+        
+         public double CalcularArea()
         {
-            return ladoUno * ladoDos;
+            return Largo * Ancho;
         }
         public double CalcularPerimetro()
         {
-            return 2 * (ladoUno + ladoDos);
+            return 2 * (Largo + Ancho);
         }
 
-        public override string ToString()
+        override public string ToString()
         {
             return $"Rectangulo - {CalcularArea():f2} - {CalcularPerimetro():f2}";
+        }
+
+        public int CompareTo(object obj)
+        {
+            IFigura fig = obj as IFigura;
+            if (fig != null)
+            {
+                return this.CalcularArea().CompareTo(fig.CalcularArea());
+            }
+            return 1;
         }
 
 

@@ -7,19 +7,19 @@ using System.Windows.Forms;
 
 namespace Actividad4.Models
 {
-    internal class Circulo:IFigura
+    internal class Circulo:Figura
     {
-        private double Radio;
-        public Circulo (double Radio)
+        private double Radio { get; }
+        public Circulo (double radio)
         {
-
+            this.Radio = radio;
         }
-        public double CalcularArea()
+        public override double CalcularArea()
         {
-            return Math.PI * Math.Pow(Radio, 2);
+            return Math.PI * (Math.Pow(Radio, 2));
         }
 
-        public double CalcularPerimetro()
+        public override double CalcularPerimetro()
         {
             return 2 * Math.PI * Radio;
         }
@@ -40,7 +40,6 @@ namespace Actividad4.Models
         //    double diametro = 2 * Radio;
         //    res = Math. PI * diametro;
         //    return res;
-
 
         //}
     }

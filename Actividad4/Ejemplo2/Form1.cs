@@ -66,12 +66,17 @@ namespace Ejemplo2
                 #endregion
             }
         }
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
+        //private void btnAgregar_Click(object sender, EventArgs e)
+        //{
           
-        }
+        //}
 
-        private void btnListar_Click(object sender, EventArgs e)
+        //private void btnListar_Click(object sender, EventArgs e)
+        //{
+            
+        //}
+
+        private void btnListar_Click_1(object sender, EventArgs e)
         {
             #region listado desordenado
             tbVer.Text += $"Lista Desordenada\r\n";

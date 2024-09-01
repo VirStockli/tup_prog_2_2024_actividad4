@@ -31,11 +31,13 @@ namespace Ejemplo2.Models
             this.DNI = DNI;
         }
 
-        public int CompareTo(object obj)
+        int IComparable.CompareTo(object obj)
         {
             Persona p = obj as Persona;
             if (p != null)
-                return DNI.CompareTo(p.DNI);
+            {
+                return this.DNI.CompareTo(p.DNI);
+            }
             return 1;
         }
 
