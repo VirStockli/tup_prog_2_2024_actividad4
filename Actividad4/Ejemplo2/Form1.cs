@@ -18,34 +18,78 @@ namespace Ejemplo2
         public Form1()
         {
             InitializeComponent();
+
+            lista.Add(new Persona(4343433, "Julia"));
+            lista.Add(new Persona(2343422, "Estefanía"));
+            lista.Add(new Persona(32443433, "Rebeca"));
+            lista.Add(new Persona(31343433, "Eduardo"));
+            lista.Add(new Persona(10643433, "Lucia"));
+            lista.Add(new Persona(40643433, "Reinaldo"));
         }
-        
+        ArrayList lista = new ArrayList(20);
         private void button1_Click(object sender, EventArgs e)
         {
-            int DNI;
-            ArrayList lista = new ArrayList();
-            lista.Add(new Persona(2134343, "rickyyy"));
-
-            lista.Sort();
-            textBox1.Text += $"List Ordenada";
-            foreach (Persona persona in lista)
+            if (string.IsNullOrEmpty(textBox1.Text.Trim()) == false)
             {
-                textBox1.Text += $"{persona.DNI}";
-            }
+                #region probando la búsqueda
+                int dni = Convert.ToInt32(textBox1.Text);
 
-            int idx = lista.BinarySearch(new Persona(DNI));
-                { if (idx >= 0)
+                tbVer.Text += $"\r\nBuscando {dni}\r\n";
+
+                
+                lista.Sort();
+                int idx = lista.BinarySearch(new Persona(dni));
+
+                Persona p = null;
+                if (idx >= 0)
                 {
-                    Persona p = lista[idx] as Persona;
-                    textBox1.Text += $"{p.DNI}";
+                    p = lista[idx] as Persona;
+                    tbVer.Text += $"{p}";
                 }
                 else
                 {
-                    textBox1.Text = "gdgdgdsas";
+                    tbVer.Text += $"No encontrado";
+
+                    Agregar ventana = new Agregar();
+                    ventana.tbdni.Text = dni.ToString();
+                    ventana.tbdni.Enabled = false;
+
+                    if (ventana.ShowDialog() == DialogResult.OK)
+                    {
+
+                        string nombre = ventana.tbNombre.Text;
+                        p = new Persona(dni, nombre);
+                        lista.Add(p);
+                        tbVer.Text += $"{p.ToString()} ya ha sido agregado";
+                    }
                 }
-                
-                
+                #endregion
             }
+        }
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            #region listado desordenado
+            tbVer.Text += $"Lista Desordenada\r\n";
+
+            foreach (Persona persona in lista)
+            {
+                tbVer.Text += $"{persona}";
+            }
+            #endregion region
+
+            #region probando ordenar
+            lista.Sort();
+            tbVer.Text += $"Lista Ordenada\r\n";
+            foreach (Persona persona in lista)
+            {
+                tbVer.Text += $"{persona}";
+            }
+            #endregion
         }
     }
 }

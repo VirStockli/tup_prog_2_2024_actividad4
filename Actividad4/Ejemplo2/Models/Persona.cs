@@ -1,8 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using Ejemplo2.Models;
 
 namespace Ejemplo2.Models
 {
@@ -11,15 +17,20 @@ namespace Ejemplo2.Models
 
         public int DNI { get; set; }
         public string Nombre { get; set; }
-        public Persona(int dni)
+
+        public Persona() { }
+        
+        public Persona(int DNI, string nombre)
         {
-            this.DNI = dni;
-        }
-        public Persona(int dni, string nombre)
-        {
-            this.DNI = dni;
+            this.DNI = DNI;
             this.Nombre = nombre;
         }
+
+        public Persona(int DNI)
+        {
+            this.DNI = DNI;
+        }
+
         public int CompareTo(object obj)
         {
             Persona p = obj as Persona;
@@ -31,7 +42,6 @@ namespace Ejemplo2.Models
         public override string ToString()
         {
             return $"{DNI} {Nombre}\r\n";
-
         }
     }
 }
